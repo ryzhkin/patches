@@ -12,7 +12,6 @@ if not os.path.exists(translate_py_path):
 
 # Step 2: Check if patch is already applied
 webui_path = 'webui.py'  # Path to webui.py in Fooocus project
-webui_path2 = 'webui2.py'
 patch_signature = "from translate import isEnglish, translate"  # A unique line in your patch
 
 
@@ -42,7 +41,7 @@ if not is_patch_applied(webui_path, patch_signature):
     for line in reversed(patch_lines):
         content.insert(insert_index, line)
 
-    with open(webui_path2, 'w') as file:
+    with open(webui_path, 'w') as file:
         file.writelines(content)
     print("Patch applied successfully.")
 else:
