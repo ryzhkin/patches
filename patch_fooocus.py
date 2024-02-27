@@ -32,11 +32,13 @@ if not is_patch_applied(webui_path, patch_signature):
     insert_index = next(i for i, line in enumerate(content) if 'def generate_clicked(*args):' in line) + 1
     patch_lines = [
         "\n",
+        "# ---------------------------------------------\n",
         "    from translate import isEnglish, translate\n",
         "    args_list = list(args)\n",
         "    if args_list and not isEnglish(args_list[0]):\n",
         "      args_list[0] = translate(args_list[0], 'en')\n",
         "      args = tuple(args_list)\n",
+        "# ---------------------------------------------\n",
         "\n",
     ]
     for line in reversed(patch_lines):
