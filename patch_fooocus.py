@@ -36,7 +36,8 @@ if not is_patch_applied(webui_path, patch_signature):
         "    args_list = list(args)\n",
         "    if args_list and not isEnglish(args_list[0]):\n",
         "      args_list[0] = translate(args_list[0], 'en')\n",
-        "      args = tuple(args_list)\n"
+        "      args = tuple(args_list)\n",
+        "\n",
     ]
     for line in reversed(patch_lines):
         content.insert(insert_index, line)
