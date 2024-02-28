@@ -3,7 +3,7 @@ import requests
 
 # Step 1: Download translate.py if not already present
 translate_url = "https://raw.githubusercontent.com/ryzhkin/patches/main/translate.py"
-translate_py_path = '/content/Fooocus/translate.py'  # Adjust path as necessary
+translate_py_path = 'translate.py'  # Adjust path as necessary
 
 if not os.path.exists(translate_py_path):
     r = requests.get(translate_url)
