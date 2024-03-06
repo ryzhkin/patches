@@ -29,14 +29,14 @@ if not is_patch_applied(webui_path, patch_signature):
         content = file.readlines()
 
     # Find the index to insert your patch after the definition of generate_clicked
-    insert_index = next(i for i, line in enumerate(content) if 'def generate_clicked(*args):' in line) + 1
+    insert_index = next(i for i, line in enumerate(content) if 'def get_task(*args):' in line) + 1
     patch_lines = [
         "\n",
         "# ---------------------------------------------\n",
         "    from translate import isEnglish, translate\n",
         "    args_list = list(args)\n",
-        "    if args_list and not isEnglish(args_list[0]):\n",
-        "      args_list[0] = translate(args_list[0], 'en')\n",
+        "    if args_list and not isEnglish(args_list[2]):\n",
+        "      args_list[2] = translate(args_list[2], 'en')\n",
         "      args = tuple(args_list)\n",
         "# ---------------------------------------------\n",
         "\n",
